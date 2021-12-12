@@ -115,9 +115,9 @@ function drawBackground(ctx){
 	ctx.lineWidth = 0.0009
 	// ctx.fillStyle = "red";
 	ctx.font = '0.09px Times New Roman';
-	ctx.strokeText("Animation Principles:", 0.1,0.1);
+	ctx.strokeText("David's Aquarium...", 0.1,0.1);
 	ctx.font = '0.05px Times New Roman';
-	ctx.strokeText("Staging & Follow through/Overlapping Action", 0.04,0.2);
+// 	ctx.strokeText("Staging & Follow through/Overlapping Action", 0.04,0.2);
 	ctx.restore();
 }
 //Creating sky color
