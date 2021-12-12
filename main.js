@@ -6,6 +6,10 @@ const FINGERLINGS = [];
 const PLANKTONS = [];
 
 function main(){
+	// SOUND INIT
+  	//Play Thunder sound after mouse click
+	window.addEventListener('mousedown', playBubbleSound);
+
 	let canvas = document.getElementById("myCanvas");
 	let ctx = canvas.getContext("2d");
 	//Forcing the canvas to have equal width and height
@@ -31,7 +35,7 @@ function main(){
 	PLANKTONS.push(new Plankton([0.95,0.7],-0.0, -0.00));//location, y start pos, x end position
 	
 
-	removeOverlay();
+	// removeOverlay();
 	//Animate
 	setInterval(animate, 100);//Draw Scene every 100millis
 }
@@ -115,9 +119,9 @@ function drawBackground(ctx){
 	ctx.lineWidth = 0.0009
 	// ctx.fillStyle = "red";
 	ctx.font = '0.09px Times New Roman';
-	ctx.strokeText("Animation Principles:", 0.1,0.1);
+	ctx.strokeText("David's Aquarium...", 0.1,0.1);
 	ctx.font = '0.05px Times New Roman';
-	ctx.strokeText("Staging & Follow through/Overlapping Action", 0.04,0.2);
+	// ctx.strokeText("Staging & Follow through/Overlapping Action", 0.04,0.2);
 	ctx.restore();
 }
 //Creating sky color
@@ -141,6 +145,26 @@ function getRandomColor(){
 	let green = Math.floor(Math.random()*255);
 	let blue = Math.floor(Math.random()*255);
 	return "rgba("+red+","+green+","+blue+",1)";
+}
+
+
+// ************************AUDIO STUFF***********
+function playBubbleSound(){
+	var audio = new Audio('https://bit.ly/30jm0PA');
+  //Play audio continuosly
+  if (typeof audio.loop == 'boolean')
+  {
+      audio.loop = true;
+  }
+  else
+  {
+      audio.addEventListener('ended', function() {
+          this.currentTime = 0;
+          this.play();
+      }, false);
+  }
+  audio.play();
+
 }
 
 
